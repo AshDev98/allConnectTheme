@@ -1,0 +1,75 @@
+.navbar{
+    height: 100px;
+    background: linear-gradient(90deg, rgba(65,72,79,1) 95%, rgba(52,58,64,1) 100%);
+}
+/*
+.page-head.flex {
+    display: none;
+}
+*/
+body.full-width .container {
+    width: 100%;
+    max-width: 100%;
+}
+
+
+.col-lg-2.layout-side-section {
+    background: #393f46;
+    padding-top: 20px;
+}
+
+[data-page-route=Workspaces] .layout-main .layout-side-section {
+    margin-right: 20px;
+    padding-top: 0px;
+}
+
+.desk-page {
+    padding-top: 20px;
+}
+
+.desk-sidebar .standard-sidebar-item.selected, .search-dialog .search-results .search-sidebar .standard-sidebar-item.selected, .standard-sidebar .standard-sidebar-item.selected {
+    background-color: #000000;
+}
+
+a {
+    color: #888888;
+}
+
+span.sidebar-item-label {
+    font-weight: 700;
+}
+
+.standard-sidebar-label {
+    color: #d1d1d1;
+}
+
+svg.icon.icon-md {
+    fill: #d1d1d1;
+}
+
+a.desk-sidebar-item.standard-sidebar-item:hover {
+    color: #d1d1d1;
+    background: black;
+}
+
+#navbar-breadcrumbs a {
+    color: #d1d1d1;
+    font-weight: 800;
+}
+
+.layout-main-section-wrapper {
+    margin-top: 20px;
+}
+
+.for-email-login .page-card-head img, .for-forgot .page-card-head img, .for-login .page-card-head img, .for-signup .page-card-head img {
+    max-height: 150px;
+}
+
+.page-head .page-head-content {
+    height: 60px;
+    background: whitesmoke;
+}
+
+.page-head {
+    margin-bottom: 0;
+}

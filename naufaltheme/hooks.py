@@ -12,9 +12,16 @@ app_license = "MIT"
 # Includes in <head>
 # ------------------
 
+fixtures = ['Custom Field']
 # include js, css files in header of desk.html
 # app_include_css = "/assets/naufaltheme/css/naufaltheme.css"
 # app_include_js = "/assets/naufaltheme/js/naufaltheme.js"
+
+app_include_css = "/assets/naufaltheme/css/naufaltheme.css"
+# app_include_js = "/assets/bluetheme/js/bluetheme.js"
+
+# include js, css files in header of web template
+web_include_css = "/assets/naufaltheme/css/naufaltheme.css"
 
 # include js, css files in header of web template
 # web_include_css = "/assets/naufaltheme/css/naufaltheme.css"
