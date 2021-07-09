@@ -58,7 +58,7 @@ a.desk-sidebar-item.standard-sidebar-item:hover {
 }
 
 .layout-main-section-wrapper {
-    margin-top: 20px;
+    margin-top: 60px;
 }
 
 .for-email-login .page-card-head img, .for-forgot .page-card-head img, .for-login .page-card-head img, .for-signup .page-card-head img {
@@ -67,7 +67,17 @@ a.desk-sidebar-item.standard-sidebar-item:hover {
 
 .page-head .page-head-content {
     height: 60px;
-    background: whitesmoke;
+    background: #f5f5f500;
+    margin-bottom: -60px;
+}
+
+.col-md-4.col-sm-6.col-xs-8.page-title {
+    margin-left: 17.8%;
+    /*display: none;*/
+}
+
+.page-title .sidebar-toggle-btn {
+    display: none;
 }
 
 .page-head {
