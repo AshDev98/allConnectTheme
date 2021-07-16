@@ -21,6 +21,7 @@ body.full-width .container {
 [data-page-route=Workspaces] .layout-main .layout-side-section {
     margin-right: 20px;
     padding-top: 0px;
+    max-width: 230px;
 }
 
 .desk-page {
@@ -40,11 +41,20 @@ span.sidebar-item-label {
 }
 
 .standard-sidebar-label {
-    color: #d1d1d1;
+    color: white;
 }
 
 svg.icon.icon-md {
     fill: #d1d1d1;
+}
+
+svg.icon.icon-md {
+    fill: #d1d1d1;
+}
+
+.icon {
+    /*color: #d1d1d1;*/
+    margin-right: 10px;
 }
 
 a.desk-sidebar-item.standard-sidebar-item:hover {
@@ -54,11 +64,11 @@ a.desk-sidebar-item.standard-sidebar-item:hover {
 
 #navbar-breadcrumbs a {
     color: #d1d1d1;
-    font-weight: 800;
+    font-weight: 700;
 }
 
 .layout-main-section-wrapper {
-    margin-top: 60px;
+    margin-top: 20px;
 }
 
 .for-email-login .page-card-head img, .for-forgot .page-card-head img, .for-login .page-card-head img, .for-signup .page-card-head img {
@@ -67,19 +77,102 @@ a.desk-sidebar-item.standard-sidebar-item:hover {
 
 .page-head .page-head-content {
     height: 60px;
-    background: #f5f5f500;
-    margin-bottom: -60px;
+    
+    /*margin-bottom: -60px;*/
 }
 
 .col-md-4.col-sm-6.col-xs-8.page-title {
-    margin-left: 17.8%;
+    /*margin-left: -15px;*/
+    /*margin-left: 17.8%;*/
     /*display: none;*/
 }
 
 .page-title .sidebar-toggle-btn {
-    display: none;
+    /*display: none;*/
 }
 
 .page-head {
-    margin-bottom: 0;
+    margin-bottom: -60px;
+    background: transparent;
+    margin-left: 20px;
+}
+
+.widget-group-body.grid-col-1 {
+    display: list-item;
+}
+
+.col-lg-2.layout-side-section {
+    margin-left: 20px;
+    padding-top: 40px;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+}
+
+.widget.widget-shadow.dashboard-widget-box.heatmap-chart {
+    box-shadow: none;
+    background: transparent;
+    margin-bottom: 60px;
+}
+
+h3.ellipsis.title-text {
+    color: #878787;
+    font-size: 18px;
+    align-self: center;
+}
+
+[data-page-route=Workspaces] .layout-main .layout-side-section {
+    padding-top: 40px;
+}
+
+
+.col.layout-main-section-wrapper {
+    /*margin-top: 40px;*/
+}
+
+.widget.widget-shadow.shortcut-widget-box {
+    border-left: 5px #2490ef solid;
+    border-radius: 0;
+}
+
+[data-page-route=Workspaces] .layout-main .layout-main-section-wrapper, [data-page-route=Workspaces] .layout-main .layout-side-section {
+    height: fit-content;
+    overflow-y: auto;
+}
+
+.leave-widget-naufal {
+    position: relative;
+    top: 259px;
+    margin-bottom: -95px;
+    background: url(https://i.ibb.co/TwCHkfN/banner.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+
+.leave-table-widget-naufal {
+    width: 100%;
+    height: 60px;
+    color: white;
+}
+
+.leave-widget-naufal-title {
+    padding-left: 20px;
+    font-weight: 800;
+    font-size: 18px;
+}
+
+.leave-widget-naufal-balance-amount {
+    font-weight: 200;
+    font-size: 30px;
+    text-align: center;
+}
+
+.leave-widget-naufal-balance-title {
+    font-weight: 600;
+    text-align: center;
+}
+
+.for-login .page-card-head img {
+    max-height: 200px;
 }
