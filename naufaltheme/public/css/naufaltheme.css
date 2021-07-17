@@ -176,3 +176,12 @@ h3.ellipsis.title-text {
 .for-login .page-card-head img {
     max-height: 200px;
 }
+
+i.fa.fa-chevron-circle-down {
+    margin-left: 30px;
+    color: orange;
+}
+
+span.sidebar-item-label {
+    color: #888888;
+}
