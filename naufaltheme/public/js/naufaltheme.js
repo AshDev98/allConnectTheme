@@ -162,12 +162,28 @@ window.onload = function(){
           text: "Reporting",
           link: 'app/leave-application',
           icon: "https://image.flaticon.com/icons/png/512/4371/4371114.png",
+        },{
+          text: "Leave Report",
+          link: 'app/leave-application',
+          icon: "https://image.flaticon.com/icons/png/512/3094/3094929.png",
+        },{
+          text: "Claim Report",
+          link: 'app/leave-application',
+          icon: "https://image.flaticon.com/icons/png/512/4149/4149709.png",
+        },{
+          text: "Travel Report",
+          link: 'app/leave-application',
+          icon: "https://image.flaticon.com/icons/png/512/1985/1985362.png",
+        },{
+          text: "Attendance Report",
+          link: 'app/leave-application',
+          icon: "https://image.flaticon.com/icons/png/512/4470/4470312.png",
         }];
 
       addSection("Main", main);
       addSection("HR", hr);
       addSection("Payroll", payroll);
-      addSection("Report", report);
+      addDropdownSection("Report", report);
       
   }
 
@@ -265,3 +281,69 @@ function addLeaveWidget(name){
 
   document.querySelector(".layout-main-section").prepend(div);
 } 
+
+function addDropdownSection(name, data){
+  const div = document.createElement("div");
+  div.classList.add("standard-sidebar-section");
+  const div2 = document.createElement("div");
+  div2.classList.add("standard-sidebar-label");
+  const label = document.createTextNode(name);
+
+  div2.appendChild(label);
+  div.appendChild(div2);
+
+  for (var i = 0; i < data.length; i++) {
+    const link = document.createElement("a");
+    const firstSpan = document.createElement("span");
+    const scndSpan = document.createElement("span");
+    
+    const img = document.createElement("img");
+   
+    const linklabel = document.createTextNode(data[i].text);
+    //link.setAttribute('href', data[i].link);
+    link.classList.add("desk-sidebar-item");
+    link.classList.add("standard-sidebar-item");
+    img.setAttribute('src', data[i].icon);
+    img.setAttribute('width', "20");
+    img.classList.add("icon");
+   
+    firstSpan.appendChild(img);
+    scndSpan.classList.add("sidebar-item-label");
+    scndSpan.appendChild(linklabel);
+    const icon = document.createElement("i");
+
+    link.appendChild(firstSpan);
+    link.appendChild(scndSpan);
+    if(i == 0){
+      link.setAttribute('onclick', "toggleDropdown()");
+      const trdSpan = document.createElement("span");
+      icon.classList.add("fa");
+      icon.classList.add("fa-chevron-circle-down");
+      trdSpan.appendChild(icon);
+      link.appendChild(trdSpan);
+    }else{
+      link.classList.add("naufal-dropdown");
+      link.setAttribute('style', "display: none");
+    }
+    div.appendChild(link);
+  }
+
+  document.querySelector(".desk-sidebar").appendChild(div);
+} 
+
+function toggleDropdown() {
+  console.log("hehe tis");
+  const menu = document.querySelectorAll(".naufal-dropdown");
+  
+  for (var i = 0; i < menu.length; i++) {
+    console.log(menu[i]);
+    var attr = menu[i].getAttribute("style");
+    console.log("a");
+    console.log(attr);
+    if(attr == "display: none"){
+      menu[i].setAttribute('style', "display: block");
+    }else{
+      menu[i].setAttribute('style', "display: none");
+    }
+  }
+}
