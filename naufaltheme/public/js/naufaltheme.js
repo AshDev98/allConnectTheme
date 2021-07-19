@@ -1,6 +1,5 @@
 console.log("huhuy");
 const url = window.location.origin;
-console.log(url);
 
 function addCss(fileName) {
 
@@ -26,33 +25,6 @@ async function hehe(){
   }
 }
 
-frappe.ui.form.on("Leave Application", {
-  get_leave_balance: function(frm) {
-    if(frm.doc.docstatus==0 && frm.doc.employee && frm.doc.leave_type && frm.doc.from_date && frm.doc.to_date) {
-      return frappe.call({
-        method: "erpnext.hr.doctype.leave_application.leave_application.get_leave_balance_on",
-        args: {
-          employee: frm.doc.employee,
-          date: frm.doc.from_date,
-          to_date: frm.doc.to_date,
-          leave_type: frm.doc.leave_type,
-          consider_all_leaves_in_the_allocation_period: true
-        },
-        callback: function(r) {
-          console.log("ssasa");
-          console.log(r);
-          if (!r.exc && r.message) {
-            frm.set_value('leave_balance', r.message);
-          }
-          else {
-            frm.set_value('leave_balance', "0");
-          }
-        }
-      });
-    }
-  },
-});
-
 const balance = [];
 var leaveWidget = [{
   title: "Annual",
@@ -75,7 +47,7 @@ async function getBalance(types, bool){
   frappe.call({
     method: "erpnext.hr.doctype.leave_application.leave_application.get_leave_balance_on", //dotted path to server method
     args: {
-      employee: "HR-EMP-00004",
+      employee: "Support",
       date:  "2021-07-13",
       to_date:  "2022-07-13",
       leave_type: types,
@@ -95,23 +67,28 @@ async function getBalance(types, bool){
 window.onload = function(){
     console.log("2234324");
     //hehe();
-
-    getBalance("Annual Leave", false);
-    getBalance("Unpaid Leave", false);
-    getBalance("Sick Leave", false);
-    getBalance("Emergency Leave", false);
-    getBalance("Mariage Leave", true);
-
-    
-
-    let testing = document.querySelector('.desk-sidebar');
-
-    console.log(testing.childNodes.length);
-
-    for (var i = 0; i < testing.childNodes.length; i++) {
-      testing.childNodes[i].setAttribute("style", "display:none;");
+    if(frappe.session.user!="Guest"){
+      getBalance("Annual Leave", false);
+      getBalance("Unpaid Leave", false);
+      getBalance("Sick Leave", false);
+      getBalance("Emergency Leave", false);
+      getBalance("Mariage Leave", true);
     }
 
+    const login = document.querySelector('.for-login .page-card-head img');
+    
+    if(login != null){
+      login.setAttribute('style', "max-height: 200px");
+    }
+    
+    let testing = document.querySelector('.desk-sidebar');
+
+    if(testing != null){
+      for (var i = 0; i < testing.childNodes.length; i++) {
+        testing.childNodes[i].setAttribute("style", "display:none;");
+      }  
+    }
+    
       var main = [{
         text: "Home",
         link: url+"/app/home",

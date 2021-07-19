@@ -92,9 +92,12 @@ a.desk-sidebar-item.standard-sidebar-item:hover {
 }
 
 .page-head {
+    background: #313539;
+    margin-bottom: 0;
+    /*
     margin-bottom: -60px;
     background: transparent;
-    margin-left: 20px;
+    margin-left: 20px;*/
 }
 
 .widget-group-body.grid-col-1 {
@@ -119,9 +122,6 @@ h3.ellipsis.title-text {
     align-self: center;
 }
 
-[data-page-route=Workspaces] .layout-main .layout-side-section {
-    padding-top: 40px;
-}
 
 
 .col.layout-main-section-wrapper {
@@ -173,7 +173,7 @@ h3.ellipsis.title-text {
     text-align: center;
 }
 
-.for-login .page-card-head img {
+.for-email-login .page-card-head img, .for-forgot .page-card-head img, .for-login .page-card-head img, .for-signup .page-card-head img {
     max-height: 200px;
 }
 
@@ -184,4 +184,8 @@ i.fa.fa-chevron-circle-down {
 
 span.sidebar-item-label {
     color: #888888;
+}
+
+.page-head.flex.drop-shadow {
+    background-color: blue;
 }
