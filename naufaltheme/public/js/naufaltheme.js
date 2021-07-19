@@ -124,59 +124,59 @@ window.onload = function(){
           icon: "https://image.flaticon.com/icons/png/512/3408/3408591.png",
         },{
           text: "Leave Application",
-          link: url+'app/leave-application',
+          link: url+"/app/leave-application/new-leave-application-1",
           icon: "https://image.flaticon.com/icons/png/512/1828/1828490.png",
         }, {
           text: "Expense Claim",
-          link: 'http://google.com',
+          link: url+ "/app/expense-claim/new-expense-claim-1",
           icon: "https://image.flaticon.com/icons/png/512/2646/2646183.png",
         }, {
           text: "Shift Application",
-          link: 'http://google.com',
+          link: url+"/app/shift-request/new-shift-request-1",
           icon: "https://image.flaticon.com/icons/png/512/584/584547.png",
         }, {
           text: "Travel Application",
-          link: 'http://google.com',
+          link: url+"/app/travel-request",
           icon: "https://image.flaticon.com/icons/png/512/201/201623.png",
         },{
           text: "Appraisal",
-          link: 'http://google.com',
+          link: url+"/app/appraisal/new-appraisal-1",
           icon: "https://image.flaticon.com/icons/png/512/786/786432.png",
         },{
-          text: "Attendance",
-          link: 'http://google2.com',
+          text: "Attendance Check In",
+          link: url+"/app/employee-checkin/new-employee-checkin-1",
           icon: "https://image.flaticon.com/icons/png/512/2620/2620267.png",
         }];
 
         var payroll = [{
           text: "Payroll Dashboard",
-          link: 'app/leave-application',
+          link: url+"/app/payroll",
           icon: "https://image.flaticon.com/icons/png/512/2738/2738435.png",
         },{
           text: "Salary Slip",
-          link: 'app/leave-application',
+          link: url+"/app/salary-slip",
           icon: "https://image.flaticon.com/icons/png/512/893/893104.png",
         }];
 
         var report = [{
           text: "Reporting",
-          link: 'app/leave-application',
+          link: url+"/app/leave-application/view/report",
           icon: "https://image.flaticon.com/icons/png/512/4371/4371114.png",
         },{
           text: "Leave Report",
-          link: 'app/leave-application',
+          link: url+"/app/leave-application/view/report",
           icon: "https://image.flaticon.com/icons/png/512/3094/3094929.png",
         },{
           text: "Claim Report",
-          link: 'app/leave-application',
+          link: url+"/app/expense-claim/view/report",
           icon: "https://image.flaticon.com/icons/png/512/4149/4149709.png",
         },{
           text: "Travel Report",
-          link: 'app/leave-application',
+          link: url+"/app/travel-request/view/report",
           icon: "https://image.flaticon.com/icons/png/512/1985/1985362.png",
         },{
           text: "Attendance Report",
-          link: 'app/leave-application',
+          link: url+"/app/attendance/view/report",
           icon: "https://image.flaticon.com/icons/png/512/4470/4470312.png",
         }];
 
