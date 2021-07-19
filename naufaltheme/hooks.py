@@ -18,11 +18,11 @@ fixtures = ['Custom Field']
 # app_include_js = "/assets/naufaltheme/js/naufaltheme.js"
 
 app_include_css = "/assets/naufaltheme/css/naufaltheme.css"
-# app_include_js = "/assets/bluetheme/js/bluetheme.js"
+app_include_js = "/assets/naufaltheme/js/naufaltheme.js"
 
 # include js, css files in header of web template
 web_include_css = "/assets/naufaltheme/css/naufaltheme.css"
-
+web_include_js = "/assets/naufaltheme/js/naufaltheme.js"
 # include js, css files in header of web template
 # web_include_css = "/assets/naufaltheme/css/naufaltheme.css"
 # web_include_js = "/assets/naufaltheme/js/naufaltheme.js"
