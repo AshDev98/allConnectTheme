@@ -1,8 +1,9 @@
 console.log("huhuy");
 const url = window.location.origin;
-
 var result = null;
 
+
+console.log(frappe.session.user_fullname);
 window.addEventListener('locationchange', function(){
   console.log('location changed!');
 })
@@ -28,6 +29,12 @@ function addCss(fileName) {
 }
   
 addCss('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+
+
+var i = 0;
+
+
+
 
 async function hehe(){
 
@@ -74,8 +81,10 @@ async function getBalance(id, types, bool){
         if(bool){
           setTimeout(function(){ 
             if(document.querySelector('.desk-page').getAttribute("data-page-name") == "Home"){
+              
               addLeaveBox();
             } else if(document.querySelector('.desk-page').getAttribute("data-page-name") == "HR"){
+              
               addLeaveWidget("testing");
             }
           }, 2000);
@@ -105,22 +114,26 @@ function printText(obj){-
   
 }
 
+function addScript(src) {
+  var s = document.createElement( 'script' );
+  s.setAttribute('src', src);
+  document.body.appendChild(s);
+}
+
 
 window.onload = function(){
 
-  console.logShallowCopy = function () {
-    
-};
-
-  const home = document.querySelector('.navbar-home');
-  home.addEventListener("click", redirect.bind(null, url+"/app/"));
     console.log("2234324");
     //hehe();
   
-    const login = document.querySelector('.for-login .page-card-head img');
+    waitProgress();
     
+
+    const login = document.querySelector('.for-login .page-card-head img');
+    console.log(login);
     if(login != null){
-      setTimeout(function(){ 
+      console.log("hoo");
+      setTimeout(function(){
         login.setAttribute('style', "max-height: 200px");
         const loginSection = document.querySelector('.for-login');
 
@@ -128,6 +141,7 @@ window.onload = function(){
         const logintr = document.createElement("tr");
         const loginImage = document.createElement("th");
         const loginBox = document.createElement("th");
+        loginBox.classList.add("testingyes");
 
         logintr.appendChild(loginImage);
         logintr.appendChild(loginBox);
@@ -135,11 +149,11 @@ window.onload = function(){
 
         loginSection.appendChild(loginTable);
 
-        let newParent = document.querySelector('.for-login .page-card-head img');
-        let oldParent = loginBox;
+        let newParent = document.querySelector('.testingyes');
+        let oldParent = document.querySelector('div.login-content page-card');
 
-        while (oldParent.childNodes.length > 0) {
-          newParent.prepend(oldParent.childNodes[0]);
+        while (oldParent.length > 0) {
+          newParent.prepend(oldParent[0]);
         }
       }, 1000);
       
@@ -464,6 +478,32 @@ function toggleDropdown() {
   }
 }
 
+
+function waitProgress(){
+  const div = document.createElement("div");
+  div.setAttribute('id', "progress-widget-naufal");
+  div.classList.add("progress-bar");
+  div.classList.add("progress-bar-striped");
+  div.classList.add("active");
+  document.querySelector(".layout-main-section").prepend(div);
+
+  if (i == 0) {
+    i = 1;
+    var width = 1;
+    var id = setInterval(frame, 150);
+    function frame() {
+      if (width >= 100) {
+        clearInterval(id);
+        i = 0;
+        div.style.display = "none";
+      } else {
+        width++;
+        div.style.width = width + "%";
+      }
+    }
+  }
+}
+
 function homeDash(){
   console.log("hihihih");
   const div = document.createElement("div");
@@ -472,8 +512,8 @@ function homeDash(){
   title.classList.add("welcome-widget-naufal-title");
   const desc = document.createElement("p");
   desc.classList.add("welcome-widget-naufal-desc");
-  const titleLabel = document.createTextNode("Hi, Welcome Support!");
-  const descLabel = document.createTextNode("this is your dashboard, here you can ....");
+  const titleLabel = document.createTextNode("Hi, Welcome !");
+  const descLabel = document.createTextNode("this is your dashboard, here you can have a quick access to your leave balance, account and modules");
   
   title.appendChild(titleLabel);
   desc.appendChild(descLabel);

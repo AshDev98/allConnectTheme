@@ -191,7 +191,7 @@ span.sidebar-item-label {
 }
 
 .welcome-widget-naufal{
-    margin-top: 60px;
+    margin-top: 30px;
     height: 80px; 
     background: url('https://i.ibb.co/x1Hv4Hp/bgwhite.png'); 
     padding-left:30%;
@@ -239,4 +239,12 @@ body {
     text-align: center;    
     color: white;
     font-weight: 600;
+}
+
+#progress-widget-naufal{
+    margin-top: 20px;
+    width: 1%;
+    height: 10px;
+    background-color: #04AA6D;
+    border-radius: 20px;
 }
