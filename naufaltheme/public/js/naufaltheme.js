@@ -1,6 +1,20 @@
 console.log("huhuy");
 const url = window.location.origin;
 
+var result = null;
+
+window.addEventListener('locationchange', function(){
+  console.log('location changed!');
+})
+
+window.onhashchange = function() { 
+  console.log('location changedwqwq!');  
+}
+
+window.onpopstate = function() { 
+  console.log('location changew22d!');
+}
+
 function addCss(fileName) {
 
     var head = document.head;
@@ -43,11 +57,11 @@ var leaveWidget = [{
   amount: 2,
 }];
 
-async function getBalance(types, bool){
+async function getBalance(id, types, bool){
   frappe.call({
     method: "erpnext.hr.doctype.leave_application.leave_application.get_leave_balance_on", //dotted path to server method
     args: {
-      employee: "Support",
+      employee: id,
       date:  "2021-07-13",
       to_date:  "2022-07-13",
       leave_type: types,
@@ -58,35 +72,97 @@ async function getBalance(types, bool){
         console.log(r.message);
         balance.push(r.message);
         if(bool){
-          addLeaveWidget("testing");
+          setTimeout(function(){ 
+            if(document.querySelector('.desk-page').getAttribute("data-page-name") == "Home"){
+              addLeaveBox();
+            } else if(document.querySelector('.desk-page').getAttribute("data-page-name") == "HR"){
+              addLeaveWidget("testing");
+            }
+          }, 2000);
         }
     }
   });
 }
 
+setTimeout(function(){ 
+  printText(frappe.db.get_value("Employee", {employee_name:frappe.session.user_fullname}, "name"));
+}, 6000);
+
+function printText(obj){-
+  console.log("hehe");
+  setTimeout(function(){ 
+    const ready = obj.readyState;
+    result = obj.responseJSON.message.name;
+    console.log(result);
+    if(frappe.session.user!="Guest"){
+      getBalance(result, "Annual Leave", false);
+      getBalance(result, "Unpaid Leave", false);
+      getBalance(result, "Sick Leave", false);
+      getBalance(result, "Emergency Leave", false);
+      getBalance(result, "Mariage Leave", true);
+    }
+  }, 3000);
+  
+}
+
+
 window.onload = function(){
+
+  console.logShallowCopy = function () {
+    
+};
+
+  const home = document.querySelector('.navbar-home');
+  home.addEventListener("click", redirect.bind(null, url+"/app/"));
     console.log("2234324");
     //hehe();
-    if(frappe.session.user!="Guest"){
-      getBalance("Annual Leave", false);
-      getBalance("Unpaid Leave", false);
-      getBalance("Sick Leave", false);
-      getBalance("Emergency Leave", false);
-      getBalance("Mariage Leave", true);
-    }
-
+  
     const login = document.querySelector('.for-login .page-card-head img');
     
     if(login != null){
-      login.setAttribute('style', "max-height: 200px");
+      setTimeout(function(){ 
+        login.setAttribute('style', "max-height: 200px");
+        const loginSection = document.querySelector('.for-login');
+
+        const loginTable = document.createElement("table");
+        const logintr = document.createElement("tr");
+        const loginImage = document.createElement("th");
+        const loginBox = document.createElement("th");
+
+        logintr.appendChild(loginImage);
+        logintr.appendChild(loginBox);
+        loginTable.appendChild(logintr);
+
+        loginSection.appendChild(loginTable);
+
+        let newParent = document.querySelector('.for-login .page-card-head img');
+        let oldParent = loginBox;
+
+        while (oldParent.childNodes.length > 0) {
+          newParent.prepend(oldParent.childNodes[0]);
+        }
+      }, 1000);
+      
     }
+
     
+
     let testing = document.querySelector('.desk-sidebar');
 
     if(testing != null){
       for (var i = 0; i < testing.childNodes.length; i++) {
         testing.childNodes[i].setAttribute("style", "display:none;");
       }  
+    }
+
+    let page = document.querySelector('.desk-page');
+    console.log("a");
+    console.log(page.getAttribute("data-page-name"));
+
+    if(page.getAttribute("data-page-name") == "Home"){
+      console.log("hayah");
+      page.classList.add("asas");
+      homeDash();
     }
     
       var main = [{
@@ -180,7 +256,7 @@ window.onload = function(){
       const scndSpan = document.createElement("span");
       const img = document.createElement("img");
       const linklabel = document.createTextNode(data[i].text);
-      link.setAttribute('href', data[i].link);
+      
       link.classList.add("desk-sidebar-item");
       link.classList.add("standard-sidebar-item");
       img.setAttribute('src', data[i].icon);
@@ -192,10 +268,16 @@ window.onload = function(){
       link.appendChild(firstSpan);
       link.appendChild(scndSpan);
       div.appendChild(link);
+      link.addEventListener("click", redirect.bind(null, data[i].link));
+
     }
 
     document.querySelector(".desk-sidebar").appendChild(div);
 } 
+
+function redirect(link){
+  window.location.href = link;
+}
 
 function addLink(name, url, imgUrl, source){
   const link = document.createElement("a");
@@ -217,6 +299,56 @@ function addLink(name, url, imgUrl, source){
   source.appendChild(link);
 }
 
+function addLeaveBox(){
+
+  var leaveWidget2 = [{
+    title: "Annual",
+  },{
+    title: "Unpaid",
+  },{
+    title: "Sick",
+  },{
+    title: "Emergency",
+  },{
+    title: "Mariage",
+  }];
+
+  const title = document.createElement("h2");
+  title.classList.add("leave-box-title-naufal");
+  title.appendChild(document.createTextNode("Leave Allocation Balance"));
+  const div = document.createElement("div");
+  div.classList.add("leave-box-widget-naufal");
+  const table = document.createElement("table");
+  table.classList.add("leave-box-table-widget-naufal");
+
+  for (var i = 0; i < 2; i++) {
+    const tr = document.createElement("tr");
+    for (var j = 0; j < 5; j++) {
+      if(i==0){
+        const td = document.createElement("td");
+        console.log("le" + balance.length + " now " + j);
+        td.appendChild(document.createTextNode(balance[j]));
+        td.classList.add("leave-box-widget-naufal-balance-amount");
+        tr.appendChild(td);
+      }else{
+        const td = document.createElement("td");
+        td.appendChild(document.createTextNode(leaveWidget2[j].title));
+        td.classList.add("leave-box-widget-naufal-balance-title");
+        tr.appendChild(td);
+      }
+    }
+    table.appendChild(tr);
+  }
+  div.appendChild(title);
+  div.appendChild(table);
+
+  let deskPage = document.querySelector('.desk-page');
+
+  console.log("hoy");
+  console.log(deskPage.getAttribute("data-page-name"));
+  document.querySelector(".layout-main-section").appendChild(div);
+} 
+
 
 function addLeaveWidget(name){
   const div = document.createElement("div");
@@ -234,9 +366,12 @@ function addLeaveWidget(name){
         const td = document.createElement("td");
         if(j==0){
           td.appendChild(document.createTextNode("Leave Allocation Balance"));
+          td.appendChild(document.createElement("br"));
+          td.appendChild(document.createTextNode(result));
           td.classList.add("leave-widget-naufal-title");
           td.setAttribute('rowspan', 2);
         }else{
+          console.log("le" + balance.length + " now " + j);
           td.appendChild(document.createTextNode(balance[j-1]));
           td.classList.add("leave-widget-naufal-balance-amount");
         }
@@ -256,6 +391,10 @@ function addLeaveWidget(name){
 
   div.appendChild(table);
 
+  let deskPage = document.querySelector('.desk-page');
+
+  console.log("hoy");
+  console.log(deskPage.getAttribute("data-page-name"));
   document.querySelector(".layout-main-section").prepend(div);
 } 
 
@@ -324,3 +463,23 @@ function toggleDropdown() {
     }
   }
 }
+
+function homeDash(){
+  console.log("hihihih");
+  const div = document.createElement("div");
+  div.classList.add("welcome-widget-naufal");
+  const title = document.createElement("h2");
+  title.classList.add("welcome-widget-naufal-title");
+  const desc = document.createElement("p");
+  desc.classList.add("welcome-widget-naufal-desc");
+  const titleLabel = document.createTextNode("Hi, Welcome Support!");
+  const descLabel = document.createTextNode("this is your dashboard, here you can ....");
+  
+  title.appendChild(titleLabel);
+  desc.appendChild(descLabel);
+  div.appendChild(title);
+  div.appendChild(desc);
+
+  document.querySelector(".layout-main-section").prepend(div);
+}
+
