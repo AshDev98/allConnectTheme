@@ -190,15 +190,16 @@ span.sidebar-item-label {
     background-color: blue;
 }
 
-.welcome-widget-naufal{
-    margin-top: 30px;
-    height: 80px; 
-    background: url('https://i.ibb.co/x1Hv4Hp/bgwhite.png'); 
-    padding-left:30%;
+.welcome-widget-naufal {
+    grid-area: header;
+    background: url('https://i.ibb.co/pQ770RC/Group-809.png');
+    /* padding-left: 30%; */
     background-repeat: no-repeat;
     background-size: cover;
-    /*box-shadow: 0 0px 0px 0 rgb(0 0 0 / 5%), 0 0px 10px 0 rgb(0 0 0 / 19%);*/
-    padding-top: 15px;
+    /* box-shadow: 0 0px 0px 0 rgb(0 0 0 / 5%), 0 0px 10px 0 rgb(0 0 0 / 19%); */
+    /* padding-top: 15px; */
+    padding: 50px;
+    padding-right: 50%;
 }
 
 h2.welcome-widget-naufal-title {
@@ -211,10 +212,11 @@ body {
 }
 
 .leave-box-widget-naufal{
+    grid-area: leave;
     padding: 50px;
-    max-width: 40%;
     background: url(https://images.pexels.com/photos/316093/pexels-photo-316093.jpeg?cs=srgb&dl=pexels-pixabay-316093.jpg&fm=jpg);
     background-size: cover;
+    border-radius: 20px;
 }
 
 .leave-box-table-widget-naufal{
@@ -247,4 +249,52 @@ body {
     height: 10px;
     background-color: #04AA6D;
     border-radius: 20px;
+}
+
+.shortcut-widget-naufal {
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    margin: 10px;
+    text-align: center;
+}
+
+h2.shortcut-widget-naufal-title {
+    font-size: 20px;
+}
+
+p.shortcut-widget-naufal-desc {
+    font-weight: 300;
+}
+
+.group-shortcut-widget-naufal {
+    grid-area: widget;
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.userWidget-naufal{
+    grid-area: userWidget;
+}
+
+.userWidget-naufal {
+    grid-area: userWidget;
+    background: white;
+    border-radius: 20px;
+}
+
+.dashboard-widget-naufal {
+    margin-top: 50px;
+    display: grid;
+    grid-template-areas:
+        'header header header leave leave leave'
+        'userWidget userWidget userWidget widget widget widget'
+        'userWidget userWidget userWidget widget widget widget';
+    grid-gap: 20px;
+    /* background-color: #2196F3; */
+    padding: 10px;
+}
+
+.container.page-body {
+    background: #f3f5f7;
 }

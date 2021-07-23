@@ -81,8 +81,7 @@ async function getBalance(id, types, bool){
         if(bool){
           setTimeout(function(){ 
             if(document.querySelector('.desk-page').getAttribute("data-page-name") == "Home"){
-              
-              addLeaveBox();
+              addHomeDash();
             } else if(document.querySelector('.desk-page').getAttribute("data-page-name") == "HR"){
               
               addLeaveWidget("testing");
@@ -176,7 +175,7 @@ window.onload = function(){
     if(page.getAttribute("data-page-name") == "Home"){
       console.log("hayah");
       page.classList.add("asas");
-      homeDash();
+      
     }
     
       var main = [{
@@ -313,55 +312,6 @@ function addLink(name, url, imgUrl, source){
   source.appendChild(link);
 }
 
-function addLeaveBox(){
-
-  var leaveWidget2 = [{
-    title: "Annual",
-  },{
-    title: "Unpaid",
-  },{
-    title: "Sick",
-  },{
-    title: "Emergency",
-  },{
-    title: "Mariage",
-  }];
-
-  const title = document.createElement("h2");
-  title.classList.add("leave-box-title-naufal");
-  title.appendChild(document.createTextNode("Leave Allocation Balance"));
-  const div = document.createElement("div");
-  div.classList.add("leave-box-widget-naufal");
-  const table = document.createElement("table");
-  table.classList.add("leave-box-table-widget-naufal");
-
-  for (var i = 0; i < 2; i++) {
-    const tr = document.createElement("tr");
-    for (var j = 0; j < 5; j++) {
-      if(i==0){
-        const td = document.createElement("td");
-        console.log("le" + balance.length + " now " + j);
-        td.appendChild(document.createTextNode(balance[j]));
-        td.classList.add("leave-box-widget-naufal-balance-amount");
-        tr.appendChild(td);
-      }else{
-        const td = document.createElement("td");
-        td.appendChild(document.createTextNode(leaveWidget2[j].title));
-        td.classList.add("leave-box-widget-naufal-balance-title");
-        tr.appendChild(td);
-      }
-    }
-    table.appendChild(tr);
-  }
-  div.appendChild(title);
-  div.appendChild(table);
-
-  let deskPage = document.querySelector('.desk-page');
-
-  console.log("hoy");
-  console.log(deskPage.getAttribute("data-page-name"));
-  document.querySelector(".layout-main-section").appendChild(div);
-} 
 
 
 function addLeaveWidget(name){
@@ -504,7 +454,7 @@ function waitProgress(){
   }
 }
 
-function homeDash(){
+function homeDash(source){
   console.log("hihihih");
   const div = document.createElement("div");
   div.classList.add("welcome-widget-naufal");
@@ -520,6 +470,110 @@ function homeDash(){
   div.appendChild(title);
   div.appendChild(desc);
 
-  document.querySelector(".layout-main-section").prepend(div);
+  source.appendChild(div);
 }
 
+function addLeaveBox(source){
+
+  var leaveWidget2 = [{
+    title: "Annual",
+  },{
+    title: "Unpaid",
+  },{
+    title: "Sick",
+  },{
+    title: "Emergency",
+  },{
+    title: "Mariage",
+  }];
+
+  const title = document.createElement("h2");
+  title.classList.add("leave-box-title-naufal");
+  title.appendChild(document.createTextNode("Leave Allocation Balance"));
+  const div = document.createElement("div");
+  div.classList.add("leave-box-widget-naufal");
+  const table = document.createElement("table");
+  table.classList.add("leave-box-table-widget-naufal");
+
+  for (var i = 0; i < 2; i++) {
+    const tr = document.createElement("tr");
+    for (var j = 0; j < 5; j++) {
+      if(i==0){
+        const td = document.createElement("td");
+        console.log("le" + balance.length + " now " + j);
+        td.appendChild(document.createTextNode(balance[j]));
+        td.classList.add("leave-box-widget-naufal-balance-amount");
+        tr.appendChild(td);
+      }else{
+        const td = document.createElement("td");
+        td.appendChild(document.createTextNode(leaveWidget2[j].title));
+        td.classList.add("leave-box-widget-naufal-balance-title");
+        tr.appendChild(td);
+      }
+    }
+    table.appendChild(tr);
+  }
+  div.appendChild(title);
+  div.appendChild(table);
+
+  let deskPage = document.querySelector('.desk-page');
+
+  console.log("hoy");
+  console.log(deskPage.getAttribute("data-page-name"));
+  source.appendChild(div);
+} 
+
+function widgetDash(source){
+  var widgets = [{
+    title: "HR",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
+  },{
+    title: "Payroll",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
+  },{
+    title: "Attendance",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
+  },{
+    title: "Profile",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
+  },];
+
+  const group = document.createElement("div");
+  group.classList.add("group-shortcut-widget-naufal");
+
+  for (var i = 0; i < widgets.length; i++) {
+    
+    const div = document.createElement("div");
+    div.classList.add("shortcut-widget-naufal");
+    const title = document.createElement("h2");
+    title.classList.add("shortcut-widget-naufal-title");
+    const desc = document.createElement("p");
+    desc.classList.add("shortcut-widget-naufal-desc");
+    const titleLabel = document.createTextNode(widgets[i].title);
+    const descLabel = document.createTextNode(widgets[i].desc);
+
+    title.appendChild(titleLabel);
+    desc.appendChild(descLabel);
+    div.appendChild(title);
+    div.appendChild(desc);
+    group.appendChild(div);
+  }
+
+  source.appendChild(group);
+
+}
+
+function addHomeDash(){
+  const div = document.createElement("div");
+  div.classList.add("dashboard-widget-naufal");
+  const userWidget = document.createElement("div");
+  userWidget.classList.add("userWidget-naufal");
+  const title = document.createElement("h2");
+  title.appendChild(document.createTextNode("Testing"));
+  homeDash(div);
+  widgetDash(div);
+  addLeaveBox(div);
+  userWidget.appendChild(title);
+  div.appendChild(userWidget);
+  document.querySelector(".layout-main-section").prepend(div);
+}
