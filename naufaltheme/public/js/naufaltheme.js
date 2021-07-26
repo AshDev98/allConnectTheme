@@ -1,7 +1,7 @@
 console.log("huhuy");
 const url = window.location.origin;
 var result = null;
-
+var user_image_url = null;
 
 console.log(frappe.session.user_fullname);
 window.addEventListener('locationchange', function(){
@@ -93,14 +93,15 @@ async function getBalance(id, types, bool){
 }
 
 setTimeout(function(){ 
-  printText(frappe.db.get_value("Employee", {employee_name:frappe.session.user_fullname}, "name"));
+  printText(frappe.db.get_value("Employee", {employee_name:frappe.session.user_fullname}, "name"), frappe.db.get_value("User", {username:frappe.session.user_fullname}, "user_image"));
 }, 6000);
 
-function printText(obj){-
+function printText(obj, obj2){-
   console.log("hehe");
   setTimeout(function(){ 
     const ready = obj.readyState;
     result = obj.responseJSON.message.name;
+    user_image_url = obj2.responseJSON.message.user_image;
     console.log(result);
     if(frappe.session.user!="Guest"){
       getBalance(result, "Annual Leave", false);
@@ -122,41 +123,32 @@ function addScript(src) {
 
 window.onload = function(){
 
+  
+  const login = document.querySelector('.for-login .page-card-head img');
+  console.log(login);
+  if(login != null){
+    document.querySelector('body').setAttribute("style", "background : url('https://images.pexels.com/photos/373965/pexels-photo-373965.jpeg?cs=srgb&dl=pexels-burst-373965.jpg&fm=jpg')");
+    console.log("hoo");
+    login.setAttribute('style', "max-height: 200px");
+    const loginSection = document.querySelector('.for-login');
+    
+
+    const loginImg = document.createElement("img");
+    loginImg.setAttribute("src", "https://images.pexels.com/photos/4218546/pexels-photo-4218546.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+    loginImg.classList.add("img-login");
+
+    document.querySelector('.login-content.page-card').appendChild(loginImg);
+    document.querySelector('.for-email-login .page-card, .for-forgot .page-card, .for-login .page-card, .for-signup .page-card').setAttribute("style", "min-width : 60%;padding: 0px;padding-right: 70px;");
+    
+  }
+
+
     console.log("2234324");
     //hehe();
+    
   
     waitProgress();
     
-
-    const login = document.querySelector('.for-login .page-card-head img');
-    console.log(login);
-    if(login != null){
-      console.log("hoo");
-      setTimeout(function(){
-        login.setAttribute('style', "max-height: 200px");
-        const loginSection = document.querySelector('.for-login');
-
-        const loginTable = document.createElement("table");
-        const logintr = document.createElement("tr");
-        const loginImage = document.createElement("th");
-        const loginBox = document.createElement("th");
-        loginBox.classList.add("testingyes");
-
-        logintr.appendChild(loginImage);
-        logintr.appendChild(loginBox);
-        loginTable.appendChild(logintr);
-
-        loginSection.appendChild(loginTable);
-
-        let newParent = document.querySelector('.testingyes');
-        let oldParent = document.querySelector('div.login-content page-card');
-
-        while (oldParent.length > 0) {
-          newParent.prepend(oldParent[0]);
-        }
-      }, 1000);
-      
-    }
 
     
 
@@ -446,6 +438,7 @@ function waitProgress(){
         clearInterval(id);
         i = 0;
         div.style.display = "none";
+        
       } else {
         width++;
         div.style.width = width + "%";
@@ -521,21 +514,22 @@ function addLeaveBox(source){
   console.log("hoy");
   console.log(deskPage.getAttribute("data-page-name"));
   source.appendChild(div);
+  
 } 
 
 function widgetDash(source){
   var widgets = [{
     title: "HR",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
+    desc: "Manage Leave, Claim and\nother applications",
   },{
     title: "Payroll",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
+    desc: "Manage Salaries and other",
   },{
     title: "Attendance",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
+    desc: "Click to attend now",
   },{
     title: "Profile",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
+    desc: "Update, edit or view your profile",
   },];
 
   const group = document.createElement("div");
@@ -563,17 +557,57 @@ function widgetDash(source){
 
 }
 
+function widgetUser(source){
+
+  var _widgetUser = [{
+    name: "image",
+    query: user_image_url == null ? url : url+user_image_url,
+  },{
+    name: "name",
+    query: frappe.session.user_fullname,
+  },{
+    name: "email",
+    query: frappe.session.user_email,
+  },{
+    name: "empId",
+    query: "Employee Id",
+  },{
+    name: "empId2",
+    query: result,
+  },{
+    name: "type",
+    query: "User Type",
+  },{
+    name: "type2",
+    query: frappe.session.user_fullname,
+  }];
+
+  const userWidget = document.createElement("div");
+  userWidget.classList.add("userWidget-naufal");
+
+  const userWidgetGrid = document.createElement("div");
+  userWidgetGrid.classList.add("userWidget-grid-container");
+  for (var i = 0; i < _widgetUser.length; i++) {
+    const userWidgetDiv = document.createElement("div");
+    userWidgetDiv.classList.add("userWidget-"+_widgetUser[i].name);
+    if(i>0){
+      userWidgetDiv.appendChild(document.createTextNode(_widgetUser[i].query));
+    }else{
+      userWidgetDiv.setAttribute('style', "background: url("+_widgetUser[i].query+ "); background-size: cover;");
+    }
+    userWidgetGrid.appendChild(userWidgetDiv);
+  }
+  userWidget.appendChild(userWidgetGrid);
+
+  source.appendChild(userWidget);
+}
+
 function addHomeDash(){
   const div = document.createElement("div");
   div.classList.add("dashboard-widget-naufal");
-  const userWidget = document.createElement("div");
-  userWidget.classList.add("userWidget-naufal");
-  const title = document.createElement("h2");
-  title.appendChild(document.createTextNode("Testing"));
   homeDash(div);
   widgetDash(div);
   addLeaveBox(div);
-  userWidget.appendChild(title);
-  div.appendChild(userWidget);
+  widgetUser(div);
   document.querySelector(".layout-main-section").prepend(div);
 }

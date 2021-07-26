@@ -1,3 +1,7 @@
+.for-email-login .page-card, .for-forgot .page-card, .for-login .page-card, .for-signup .page-card{
+    max-width: 60%;
+}
+
 .navbar{
     height: 100px;
     background: linear-gradient(90deg, rgba(65,72,79,1) 95%, rgba(52,58,64,1) 100%);
@@ -281,6 +285,7 @@ p.shortcut-widget-naufal-desc {
     grid-area: userWidget;
     background: white;
     border-radius: 20px;
+    padding: 50px;
 }
 
 .dashboard-widget-naufal {
@@ -298,3 +303,72 @@ p.shortcut-widget-naufal-desc {
 .container.page-body {
     background: #f3f5f7;
 }
+
+.page-head.flex.drop-shadow {
+    background-color: #313539;
+    padding-top: 40px;
+}
+
+.userWidget-image { 
+    grid-area: userWidget-header; 
+    background-size: cover;
+    border-radius: 10px;
+    margin: 10px;
+}
+.userWidget-name { 
+    grid-area: userWidget-right;
+    font-size: 30px;
+    font-weight: 700;
+}
+.userWidget-email { 
+    grid-area: userWidget-main; 
+    font-weight: 600;
+    color: cornflowerblue;
+}
+.userWidget-empId { grid-area: userWidget-menu; }
+.userWidget-empId2 { grid-area: userWidget-footer; }
+.userWidget-type { grid-area: userWidget-left; }
+.userWidget-type2 { grid-area: userWidget-footers; }
+
+.userWidget-grid-container {
+  display: grid;
+  grid-template-areas:
+    'userWidget-header userWidget-right userWidget-right'
+    'userWidget-header userWidget-main userWidget-main'
+    'userWidget-menu userWidget-footer userWidget-footer'
+    'userWidget-left userWidget-footers userWidget-footers';
+  grid-gap: 10px;
+  /*background-color: #2196F3;*/
+}
+
+.userWidget-grid-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: left;
+}
+
+    
+.for-email-login .page-card-head, .for-forgot .page-card-head, .for-login .page-card-head, .for-signup .page-card-head{
+    grid-area: logo;
+}
+
+.for-email-login .page-card form, .for-forgot .page-card form, .for-login .page-card form, .for-signup .page-card form{
+    grid-area: form;
+}
+
+img.img-login {
+    grid-area: img;
+}
+
+.for-email-login .page-card, .for-forgot .page-card, .for-login .page-card, .for-signup .page-card{
+    display: grid;
+    grid-template-areas:
+        'img img logo logo'
+        'img img form form';
+    grid-gap: 0px 50px;
+}
+
+.login-content.page-card {
+    max-width: 60%;
+}
+
+.for-signup .page-card{max-width:60%;margin:0 auto;border-radius:var(--border-radius-md);}
