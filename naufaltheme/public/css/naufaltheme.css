@@ -235,7 +235,7 @@ body {
 .leave-box-widget-naufal-balance-amount{
     padding: 10px;    
     color: white;
-    font-weight: 200;
+    font-weight: 600;
     font-size: 30px;
     text-align: center;
 }
@@ -312,8 +312,10 @@ p.shortcut-widget-naufal-desc {
 .userWidget-image { 
     grid-area: userWidget-header; 
     background-size: cover;
-    border-radius: 10px;
+    border-radius: 50%;
     margin: 10px;
+    width: 80px;
+    height: 80px;
 }
 .userWidget-name { 
     grid-area: userWidget-right;
@@ -326,9 +328,15 @@ p.shortcut-widget-naufal-desc {
     color: cornflowerblue;
 }
 .userWidget-empId { grid-area: userWidget-menu; }
-.userWidget-empId2 { grid-area: userWidget-footer; }
+.userWidget-empId2 { 
+    grid-area: userWidget-footer; 
+    text-align: right;
+}
 .userWidget-type { grid-area: userWidget-left; }
-.userWidget-type2 { grid-area: userWidget-footers; }
+.userWidget-type2 { 
+    grid-area: userWidget-footers; 
+    text-align: right;
+}
 
 .userWidget-grid-container {
   display: grid;
@@ -339,11 +347,13 @@ p.shortcut-widget-naufal-desc {
     'userWidget-left userWidget-footers userWidget-footers';
   grid-gap: 10px;
   /*background-color: #2196F3;*/
+  grid-template-rows: max-content;
+    grid-template-columns: min-content;
 }
 
 .userWidget-grid-container > div {
   background-color: rgba(255, 255, 255, 0.8);
-  text-align: left;
+  
 }
 
     
@@ -372,3 +382,11 @@ img.img-login {
 }
 
 .for-signup .page-card{max-width:60%;margin:0 auto;border-radius:var(--border-radius-md);}
+
+.navbar-light {
+    border-bottom: 0px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #e7e7e7;
+}
