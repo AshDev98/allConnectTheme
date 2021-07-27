@@ -396,6 +396,7 @@ function addDropdownSection(name, data){
     }else{
       link.classList.add("naufal-dropdown");
       link.setAttribute('style', "display: none");
+      link.addEventListener("click", redirect.bind(null, data[i].link));
     }
     div.appendChild(link);
   }
