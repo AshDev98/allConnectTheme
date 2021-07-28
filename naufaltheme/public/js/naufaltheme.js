@@ -122,7 +122,7 @@ function addScript(src) {
 
 
 window.onload = function(){
-
+  document.querySelector('a.navbar-brand.navbar-home') == null ? console.log("") : document.querySelector('a.navbar-brand.navbar-home').addEventListener("click", redirect.bind(null, url+"/app"));
   
   const login = document.querySelector('.for-login .page-card-head img');
   console.log(login);
