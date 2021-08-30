@@ -81,12 +81,11 @@ async function getBalance(id, types, bool){
         if(bool){
           setTimeout(function(){ 
             if(document.querySelector('.desk-page').getAttribute("data-page-name") == "Home"){
-              addHomeDash();
+              add2ndhome();
             } else if(document.querySelector('.desk-page').getAttribute("data-page-name") == "HR"){
-              
-              addLeaveWidget("testing");
+              //addLeaveWidget("testing");
             }
-          }, 2000);
+          }, 1000);
         }
     }
   });
@@ -94,7 +93,7 @@ async function getBalance(id, types, bool){
 
 setTimeout(function(){ 
   printText(frappe.db.get_value("Employee", {employee_name:frappe.session.user_fullname}, "name"), frappe.db.get_value("User", {username:frappe.session.user_fullname}, "user_image"));
-}, 6000);
+}, 4000);
 
 function printText(obj, obj2){-
   console.log("hehe");
@@ -110,7 +109,7 @@ function printText(obj, obj2){-
       getBalance(result, "Emergency Leave", false);
       getBalance(result, "Mariage Leave", true);
     }
-  }, 3000);
+  }, 2000);
   
 }
 
@@ -141,13 +140,16 @@ window.onload = function(){
     document.querySelector('.for-email-login .page-card, .for-forgot .page-card, .for-login .page-card, .for-signup .page-card').setAttribute("style", "min-width : 60%;padding: 0px;padding-right: 70px;");
     
   }
-
-
     console.log("2234324");
     //hehe();
-    
   
-    waitProgress();
+    //waitProgress();
+
+    if(document.querySelector('.desk-page').getAttribute("data-page-name") == "Home"){
+      addHomeDash();
+    } else if(document.querySelector('.desk-page').getAttribute("data-page-name") == "HR"){
+      addLeaveWidget("testing");
+    }
     
 
     
@@ -207,7 +209,7 @@ window.onload = function(){
         }];
 
         var payroll = [{
-          text: "Payroll Dashboard",
+          text: "Finance Dashboard",
           link: url+"/app/payroll",
           icon: "https://image.flaticon.com/icons/png/512/2738/2738435.png",
         },{
@@ -240,7 +242,7 @@ window.onload = function(){
 
       addSection("Main", main);
       addSection("HR", hr);
-      addSection("Payroll", payroll);
+      addSection("Finance", payroll);
       addDropdownSection("Report", report);
       
   }
@@ -321,7 +323,7 @@ function addLeaveWidget(name){
       if(i==0){
         const td = document.createElement("td");
         if(j==0){
-          td.appendChild(document.createTextNode("Leave Allocation Balance"));
+          td.appendChild(document.createTextNode("Leave Balance"));
           td.appendChild(document.createElement("br"));
           td.appendChild(document.createTextNode(result));
           td.classList.add("leave-widget-naufal-title");
@@ -467,7 +469,7 @@ function homeDash(source){
   source.appendChild(div);
 }
 
-function addLeaveBox(source){
+function addLeaveBox(source, isLoading){
 
   var leaveWidget2 = [{
     title: "Annual",
@@ -483,32 +485,38 @@ function addLeaveBox(source){
 
   const title = document.createElement("h2");
   title.classList.add("leave-box-title-naufal");
-  title.appendChild(document.createTextNode("Leave Allocation Balance"));
+  title.appendChild(document.createTextNode("Leave Balance"));
   const div = document.createElement("div");
-  div.classList.add("leave-box-widget-naufal");
-  const table = document.createElement("table");
-  table.classList.add("leave-box-table-widget-naufal");
+  if(isLoading){
+    div.classList.add("loader");
+  }else{
+    const test = document.querySelector('.loader');
+    test.classList.remove("loader");
+    div.classList.add("leave-box-widget-naufal");
+    const table = document.createElement("table");
+    table.classList.add("leave-box-table-widget-naufal");
 
-  for (var i = 0; i < 2; i++) {
-    const tr = document.createElement("tr");
-    for (var j = 0; j < 5; j++) {
-      if(i==0){
-        const td = document.createElement("td");
-        console.log("le" + balance.length + " now " + j);
-        td.appendChild(document.createTextNode(balance[j]));
-        td.classList.add("leave-box-widget-naufal-balance-amount");
-        tr.appendChild(td);
-      }else{
-        const td = document.createElement("td");
-        td.appendChild(document.createTextNode(leaveWidget2[j].title));
-        td.classList.add("leave-box-widget-naufal-balance-title");
-        tr.appendChild(td);
+    for (var i = 0; i < 2; i++) {
+      const tr = document.createElement("tr");
+      for (var j = 0; j < 5; j++) {
+        if(i==0){
+          const td = document.createElement("td");
+          console.log("le" + balance.length + " now " + j);
+          td.appendChild(document.createTextNode(balance[j]));
+          td.classList.add("leave-box-widget-naufal-balance-amount");
+          tr.appendChild(td);
+        }else{
+          const td = document.createElement("td");
+          td.appendChild(document.createTextNode(leaveWidget2[j].title));
+          td.classList.add("leave-box-widget-naufal-balance-title");
+          tr.appendChild(td);
+        }
       }
+      table.appendChild(tr);
     }
-    table.appendChild(tr);
+    div.appendChild(title);
+    div.appendChild(table);
   }
-  div.appendChild(title);
-  div.appendChild(table);
 
   let deskPage = document.querySelector('.desk-page');
 
@@ -523,7 +531,7 @@ function widgetDash(source){
     title: "HR",
     desc: "Manage Leave, Claim and\nother applications",
   },{
-    title: "Payroll",
+    title: "Finance",
     desc: "Manage Salaries and other",
   },{
     title: "Attendance",
@@ -608,7 +616,16 @@ function addHomeDash(){
   div.classList.add("dashboard-widget-naufal");
   homeDash(div);
   widgetDash(div);
-  addLeaveBox(div);
+  addLeaveBox(div, true);
+  widgetUser(div);
+  document.querySelector(".layout-main-section").prepend(div);
+}
+
+function add2ndhome(){
+  const div = document.querySelector(".dashboard-widget-naufal");
+  homeDash(div);
+  widgetDash(div);
+  addLeaveBox(div, false);
   widgetUser(div);
   document.querySelector(".layout-main-section").prepend(div);
 }
