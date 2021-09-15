@@ -1,4 +1,6 @@
-console.log("huhuy");
+//updated via Sajjadur
+
+console.log("okay");
 const url = window.location.origin;
 var result = null;
 var user_image_url = null;
