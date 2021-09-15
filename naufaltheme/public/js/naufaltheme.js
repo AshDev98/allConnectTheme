@@ -7,7 +7,7 @@ var user_image_url = null;
 
 console.log(frappe.session.user_fullname);
 window.addEventListener('locationchange', function(){
-  console.log('location changed!');
+  console.log('location changed successfully!');
 })
 
 window.onhashchange = function() { 
