@@ -62,7 +62,7 @@ var leaveWidget = [{
   title: "Emergency",
   amount: 2,
 },{
-  title: "Mariage",
+  title: "Marriage",
   amount: 2,
 }];
 
@@ -109,7 +109,7 @@ function printText(obj, obj2){-
       getBalance(result, "Unpaid Leave", false);
       getBalance(result, "Sick Leave", false);
       getBalance(result, "Emergency Leave", false);
-      getBalance(result, "Mariage Leave", true);
+      getBalance(result, "Marriage Leave", true);
     }
   }, 2000);
   
