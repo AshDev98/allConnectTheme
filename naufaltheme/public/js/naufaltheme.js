@@ -482,7 +482,7 @@ function addLeaveBox(source, isLoading){
   },{
     title: "Emergency",
   },{
-    title: "Mariage",
+    title: "Marriage",
   }];
 
   const title = document.createElement("h2");
