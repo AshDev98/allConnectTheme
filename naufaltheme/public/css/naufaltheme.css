@@ -85,16 +85,6 @@ a.desk-sidebar-item.standard-sidebar-item:hover {
     /*margin-bottom: -60px;*/
 }
 
-.col-md-4.col-sm-6.col-xs-8.page-title {
-    /*margin-left: -15px;*/
-    /*margin-left: 17.8%;*/
-    /*display: none;*/
-}
-
-.page-title .sidebar-toggle-btn {
-    /*display: none;*/
-}
-
 .page-head {
     background: #313539;
     margin-bottom: 0;
@@ -126,11 +116,6 @@ h3.ellipsis.title-text {
     align-self: center;
 }
 
-
-
-.col.layout-main-section-wrapper {
-    /*margin-top: 40px;*/
-}
 
 .widget.widget-shadow.shortcut-widget-box {
     border-left: 5px #2490ef solid;
