@@ -121,6 +121,14 @@ function addScript(src) {
   document.body.appendChild(s);
 }
 
+document.onreadystatechange = function()
+{
+    if (document.readyState === 'complete')
+    {
+      frappe.ui.toolbar.toggle_full_width();
+    }
+};
+
 
 window.onload = function(){
   document.querySelector('a.navbar-brand.navbar-home') == null ? console.log("") : document.querySelector('a.navbar-brand.navbar-home').addEventListener("click", redirect.bind(null, url+"/app"));
