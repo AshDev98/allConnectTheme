@@ -7,7 +7,7 @@
     background: linear-gradient(90deg, rgba(65,72,79,1) 95%, rgba(52,58,64,1) 100%);
 }
 
-body .full-width .container {
+body.full-width .container {
     width: 100%;
     max-width: 100%;
 }
