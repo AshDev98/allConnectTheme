@@ -7,6 +7,12 @@
     background: linear-gradient(90deg, rgba(65,72,79,1) 95%, rgba(52,58,64,1) 100%);
 }
 
+body .full-width .container {
+    width: 100%;
+    max-width: 100%;
+}
+
+
 .col-lg-2.layout-side-section {
     height: 100vh;
     background: #393f46;
