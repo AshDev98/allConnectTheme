@@ -14,9 +14,9 @@ body.full-width .container {
 
 
 .col-lg-2.layout-side-section {
-    height: 100vh;
     background: #393f46;
     padding-top: 20px;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
 }
 
 [data-page-route=Workspaces] .layout-main .layout-side-section {
@@ -67,10 +67,6 @@ a.desk-sidebar-item.standard-sidebar-item:hover {
     font-weight: 700;
 }
 
-.layout-main-section-wrapper {
-    margin-top: 20px;
-}
-
 .for-email-login .page-card-head img, .for-forgot .page-card-head img, .for-login .page-card-head img, .for-signup .page-card-head img {
     max-height: 150px;
 }
@@ -86,11 +82,6 @@ a.desk-sidebar-item.standard-sidebar-item:hover {
 
 .widget-group-body.grid-col-1 {
     display: list-item;
-}
-
-.col-lg-2.layout-side-section {
-    padding-top: 40px;
-    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
 }
 
 .widget.widget-shadow.dashboard-widget-box.heatmap-chart {
