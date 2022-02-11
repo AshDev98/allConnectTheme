@@ -274,8 +274,8 @@ p.shortcut-widget-naufal-desc {
 }
 
 .page-head.flex.drop-shadow {
-    background-color: #313539;
-    padding-top: 40px;
+    background-color: #313539 !important;
+    padding-top: 20px;
 }
 
 .userWidget-image { 
