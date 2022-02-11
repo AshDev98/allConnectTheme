@@ -67,6 +67,10 @@ a.desk-sidebar-item.standard-sidebar-item:hover {
     font-weight: 700;
 }
 
+.layout-main-section-wrapper {
+    margin-top: 20px;
+}
+
 .for-email-login .page-card-head img, .for-forgot .page-card-head img, .for-login .page-card-head img, .for-signup .page-card-head img {
     max-height: 150px;
 }
@@ -376,10 +380,4 @@ img.img-login {
   @-webkit-keyframes spin {
     0% { -webkit-transform: rotate(0deg); }
     100% { -webkit-transform: rotate(360deg); }
-  }
-
-  /* Sajjadur */
-
-  .layout-main-section-wrapper {
-    margin-top: var(--page-top-margin);
   }
