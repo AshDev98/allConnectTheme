@@ -1,4 +1,4 @@
-//updated via Sajjadur
+//updated by Sajjadur
 
 console.log("okay");
 const url = window.location.origin;
@@ -525,7 +525,7 @@ function addLeaveBox(source, isLoading){
   console.log("hoy");
   console.log(deskPage.getAttribute("data-page-name"));
   source.appendChild(div);
-  
+
 } 
 
 function widgetDash(source){

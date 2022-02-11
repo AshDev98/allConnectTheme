@@ -3,14 +3,10 @@
 }
 
 .navbar{
-    height: 100px;
+    height: 80px;
     background: linear-gradient(90deg, rgba(65,72,79,1) 95%, rgba(52,58,64,1) 100%);
 }
-/*
-.page-head.flex {
-    display: none;
-}
-*/
+
 body.full-width .container {
     width: 100%;
     max-width: 100%;
@@ -81,17 +77,11 @@ a.desk-sidebar-item.standard-sidebar-item:hover {
 
 .page-head .page-head-content {
     height: 60px;
-    
-    /*margin-bottom: -60px;*/
 }
 
 .page-head {
     background: #313539;
     margin-bottom: 0;
-    /*
-    margin-bottom: -60px;
-    background: transparent;
-    margin-left: 20px;*/
 }
 
 .widget-group-body.grid-col-1 {
@@ -99,7 +89,6 @@ a.desk-sidebar-item.standard-sidebar-item:hover {
 }
 
 .col-lg-2.layout-side-section {
-    margin-left: 20px;
     padding-top: 40px;
     box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
 }
@@ -123,7 +112,7 @@ h3.ellipsis.title-text {
 }
 
 [data-page-route=Workspaces] .layout-main .layout-main-section-wrapper, [data-page-route=Workspaces] .layout-main .layout-side-section {
-    height: fit-content;
+    height: 100vh;
     overflow-y: auto;
 }
 

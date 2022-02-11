@@ -24,8 +24,6 @@ from frappe.utils.data import *
 from frappe.utils.html_utils import sanitize_html
 
 
-
-
 @frappe.whitelist()
 def get_full_user_name(user=None):
 	p = frappe.db.get_value("User", user, "full_name")
