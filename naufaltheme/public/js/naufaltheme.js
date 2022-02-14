@@ -126,6 +126,7 @@ document.onreadystatechange = function()
 {
     if (document.readyState === 'complete')
     {
+      localStorage.container_fullwidth = true;
       $(document.body).toggleClass('full-width', true);
     }
 };
