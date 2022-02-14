@@ -121,14 +121,14 @@ function addScript(src) {
   document.body.appendChild(s);
 }
 
-//toggle full width frontend
-// document.onreadystatechange = function()
-// {
-//     if (document.readyState === 'complete')
-//     {
-//       frappe.ui.toolbar.toggle_full_width();
-//     }
-// };
+//set full width frontend
+document.onreadystatechange = function()
+{
+    if (document.readyState === 'complete')
+    {
+      $(document.body).toggleClass('full-width', true);
+    }
+};
 
 
 window.onload = function(){
