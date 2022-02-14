@@ -7,7 +7,7 @@ document.onreadystatechange = function()
     {
       if(JSON.parse(localStorage.container_fullwidth) == 'false') {
         localStorage.container_fullwidth = true;
-        $(document.body).addClass('full-width');
+        $(document.body).toggleClass('full-width', true);
       }
     }
 };
