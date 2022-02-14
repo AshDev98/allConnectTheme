@@ -1,6 +1,16 @@
 //updated by Sajjadur
 
-console.log(JSON.parse(localStorage.container_fullwidth));
+//set full width frontend
+document.onreadystatechange = function()
+{
+    if (document.readyState === 'complete')
+    {
+      if(JSON.parse(localStorage.container_fullwidth) == 'false') {
+        localStorage.container_fullwidth = true;
+        $(document.body).addClass('full-width');
+      }
+    }
+};
 
 const url = window.location.origin;
 var result = null;
@@ -108,18 +118,6 @@ function addScript(src) {
   s.setAttribute('src', src);
   document.body.appendChild(s);
 }
-
-//set full width frontend
-document.onreadystatechange = function()
-{
-    if (document.readyState === 'complete')
-    {
-      // if(JSON.parse(localStorage.container_fullwidth) == 'false') {
-      //   localStorage.container_fullwidth = true;
-      //   $(document.body).toggleClass('full-width', true);
-      // }
-    }
-};
 
 
 window.onload = function(){
