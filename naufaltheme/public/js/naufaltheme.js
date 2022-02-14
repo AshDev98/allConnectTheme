@@ -1,22 +1,10 @@
 //updated by Sajjadur
 
-console.log("okay");
+console.log(JSON.parse(localStorage.container_fullwidth));
+
 const url = window.location.origin;
 var result = null;
 var user_image_url = null;
-
-console.log(frappe.session.user_fullname);
-window.addEventListener('locationchange', function(){
-  console.log('location changed successfully!');
-})
-
-window.onhashchange = function() { 
-  console.log('location changedwqwq!');  
-}
-
-window.onpopstate = function() { 
-  console.log('location changew22d!');
-}
 
 function addCss(fileName) {
 
@@ -126,8 +114,10 @@ document.onreadystatechange = function()
 {
     if (document.readyState === 'complete')
     {
-      localStorage.container_fullwidth = true;
-      $(document.body).toggleClass('full-width', true);
+      // if(JSON.parse(localStorage.container_fullwidth) == 'false') {
+      //   localStorage.container_fullwidth = true;
+      //   $(document.body).toggleClass('full-width', true);
+      // }
     }
 };
 
