@@ -5,10 +5,8 @@ document.onreadystatechange = function()
 {
     if (document.readyState === 'complete')
     {
-      if(JSON.parse(localStorage.container_fullwidth) == 'false') {
-        localStorage.container_fullwidth = true;
-        $(document.body).toggleClass('full-width', true);
-      }
+      localStorage.container_fullwidth = true;
+      $(document.body).toggleClass('full-width', true);
     }
 };
 
