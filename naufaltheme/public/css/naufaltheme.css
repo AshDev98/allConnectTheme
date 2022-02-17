@@ -15,6 +15,8 @@ body.full-width .container {
 
 .col-lg-2.layout-side-section {
     background: #393f46;
+    min-height: 100vh;
+    height: 100%;
     overflow-y: auto;
     padding-top: 20px;
     box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
@@ -107,7 +109,7 @@ h3.ellipsis.title-text {
     border-radius: 0;
 }
 
-[data-page-route=Workspaces] .layout-main .layout-main-section-wrapper, [data-page-route=List] .layout-main .layout-side-section, [data-page-route=Form] .layout-main .layout-side-section {
+[data-page-route=Workspaces] .layout-main .layout-main-section-wrapper, [data-page-route=List] .layout-main .layout-side-section, [data-page-route=Form] .layout-main .layout-side-section, [data-page-route=Appraisal] .layout-main .layout-side-section {
     height: 100%;
     overflow-y: auto;
 }
