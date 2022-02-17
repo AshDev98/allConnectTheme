@@ -107,7 +107,7 @@ h3.ellipsis.title-text {
     border-radius: 0;
 }
 
-[data-page-route=Workspaces] .layout-main .layout-main-section-wrapper, [data-page-route=Workspaces] .layout-main .layout-side-section {
+[data-page-route=Workspaces] .layout-main .layout-main-section-wrapper, [data-page-route=Employee] .layout-main .layout-side-section {
     height: 100%;
     overflow-y: auto;
 }
@@ -298,11 +298,13 @@ p.shortcut-widget-naufal-desc {
     color: cornflowerblue;
 }
 .userWidget-empId { grid-area: userWidget-menu; }
+
 .userWidget-empId2 { 
     grid-area: userWidget-footer; 
     text-align: right;
 }
 .userWidget-type { grid-area: userWidget-left; }
+
 .userWidget-type2 { 
     grid-area: userWidget-footers; 
     text-align: right;
