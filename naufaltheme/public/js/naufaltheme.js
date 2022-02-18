@@ -122,7 +122,6 @@ window.onload = function () {
     login.setAttribute('style', "max-height: 200px;margin-bottom: 0px;padding-top: 20px;");
     const loginSection = document.querySelector('.for-login');
 
-
     const loginImg = document.createElement("img");
     loginImg.setAttribute("src", "https://images.pexels.com/photos/1957477/pexels-photo-1957477.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
     loginImg.classList.add("img-login");

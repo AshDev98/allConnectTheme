@@ -1,3 +1,12 @@
+/*  Start -> Hide Toggle Theme and Toggle full width */
+
+.dropdown-menu-right a:nth-child(6), .dropdown-menu-right a:nth-child(7) {
+    display: none !important;
+}
+
+/* End -> Hide Toggle Theme and Toggle full width */
+
+
 .for-email-login .page-card, .for-forgot .page-card, .for-login .page-card, .for-signup .page-card{
     max-width: 60%;
 }
@@ -287,11 +296,13 @@ p.shortcut-widget-naufal-desc {
     width: 80px;
     height: 80px;
 }
+
 .userWidget-name { 
     grid-area: userWidget-right;
     font-size: 30px;
     font-weight: 700;
 }
+
 .userWidget-email { 
     grid-area: userWidget-main; 
     font-weight: 600;
