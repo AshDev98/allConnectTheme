@@ -39,10 +39,6 @@ body.full-width .container {
     padding-top: 20px;
 }
 
-.desk-sidebar .standard-sidebar-item.selected, .search-dialog .search-results .search-sidebar .standard-sidebar-item.selected, .standard-sidebar .standard-sidebar-item.selected {
-    background-color: #000000;
-}
-
 a {
     color: #888888;
 }
