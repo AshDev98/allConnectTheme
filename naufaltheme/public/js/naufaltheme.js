@@ -385,7 +385,6 @@ function addDropdownSection(name, data) {
 }
 
 function toggleDropdown() {
-  console.log("hehe tis");
   const menu = document.querySelectorAll(".naufal-dropdown");
 
   for (var i = 0; i < menu.length; i++) {

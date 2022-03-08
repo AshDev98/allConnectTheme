@@ -54,6 +54,12 @@ web_include_js = "/assets/naufaltheme/js/naufaltheme.js"
 #	"Role": "home_page"
 # }
 
+
+website_context = {
+	"favicon": "/assets/naufaltheme/images/allConnectMW.png",
+	"splash_image": "/assets/naufaltheme/images/allConnectMW.png"
+}
+
 # Generators
 # ----------
 
