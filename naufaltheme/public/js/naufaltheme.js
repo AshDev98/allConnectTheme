@@ -156,69 +156,69 @@ window.onload = function () {
   var main = [{
     text: "Home",
     link: url + "/app/home",
-    icon: "../images/home.png",
+    icon: "/assets/naufaltheme/images/home.png",
   }];
 
   var hr = [{
     text: "HR Dashboard",
     link: url + "/app/hr",
-    icon: "../images/dashboard.png",
+    icon: "/assets/naufaltheme/images/dashboard.png",
   }, {
     text: "Leave Application",
     link: url + "/app/leave-application/new-leave-application-1",
-    icon: "../images/leave-application.png",
+    icon: "/assets/naufaltheme/images/leave-application.png",
   }, {
     text: "Expense Claim",
     link: url + "/app/expense-claim/new-expense-claim-1",
-    icon: "../images/expense-claim.png",
+    icon: "/assets/naufaltheme/images/expense-claim.png",
   }, {
     text: "Shift Application",
     link: url + "/app/shift-request/new-shift-request-1",
-    icon: "../images/shift-application.png",
+    icon: "/assets/naufaltheme/images/shift-application.png",
   }, {
     text: "Travel Application",
     link: url + "/app/travel-request",
-    icon: "../images/travel-application.png",
+    icon: "/assets/naufaltheme/images/travel-application.png",
   }, {
     text: "Appraisal",
     link: url + "/app/appraisal/new-appraisal-1",
-    icon: "../images/appraisal.png",
+    icon: "/assets/naufaltheme/images/appraisal.png",
   }, {
     text: "Attendance Check In",
     link: url + "/app/employee-checkin/new-employee-checkin-1",
-    icon: "../images/attendance-check.png",
+    icon: "/assets/naufaltheme/images/attendance-check.png",
   }];
 
   var payroll = [{
     text: "Finance Dashboard",
     link: url + "/app/payroll",
-    icon: "../images/finance-dashboard.png",
+    icon: "/assets/naufaltheme/images/finance-dashboard.png",
   }, {
     text: "Salary Slip",
     link: url + "/app/salary-slip",
-    icon: "../images/salary-slip.png",
+    icon: "/assets/naufaltheme/images/salary-slip.png",
   }];
 
   var report = [{
     text: "Reporting",
     link: url + "/app/leave-application/view/report",
-    icon: "../images/reporting.png",
+    icon: "/assets/naufaltheme/images/reporting.png",
   }, {
     text: "Leave Report",
     link: url + "/app/leave-application/view/report",
-    icon: "../images/leave-report.png",
+    icon: "/assets/naufaltheme/images/leave-report.png",
   }, {
     text: "Claim Report",
     link: url + "/app/expense-claim/view/report",
-    icon: "../images/claim-report.png",
+    icon: "/assets/naufaltheme/images/claim-report.png",
   }, {
     text: "Travel Report",
     link: url + "/app/travel-request/view/report",
-    icon: "../images/travel-report.png",
+    icon: "/assets/naufaltheme/images/travel-report.png",
   }, {
     text: "Attendance Report",
     link: url + "/app/attendance/view/report",
-    icon: "../images/attendance-report.png",
+    icon: "/assets/naufaltheme/images/attendance-report.png",
   }];
 
   addSection("Main", main);
