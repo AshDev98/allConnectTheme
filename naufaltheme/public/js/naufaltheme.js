@@ -88,19 +88,19 @@ setTimeout(function () {
 
 function printText(obj, obj2) {
   -
-  setTimeout(function () {
-    const ready = obj.readyState;
-    result = obj.responseJSON.message.name;
-    user_image_url = obj2.responseJSON.message.user_image;
-    console.log(result);
-    if (frappe.session.user != "Guest") {
-      getBalance(result, "Annual Leave", false);
-      getBalance(result, "Unpaid Leave", false);
-      getBalance(result, "Sick Leave", false);
-      getBalance(result, "Emergency Leave", false);
-      getBalance(result, "Marriage Leave", true);
-    }
-  }, 2000);
+    setTimeout(function () {
+      const ready = obj.readyState;
+      result = obj.responseJSON.message.name;
+      user_image_url = obj2.responseJSON.message.user_image;
+      console.log(result);
+      if (frappe.session.user != "Guest") {
+        getBalance(result, "Annual Leave", false);
+        getBalance(result, "Unpaid Leave", false);
+        getBalance(result, "Sick Leave", false);
+        getBalance(result, "Emergency Leave", false);
+        getBalance(result, "Marriage Leave", true);
+      }
+    }, 2000);
 
 }
 
@@ -156,69 +156,69 @@ window.onload = function () {
   var main = [{
     text: "Home",
     link: url + "/app/home",
-    icon: "https://image.flaticon.com/icons/png/512/609/609803.png",
+    icon: "../images/home.png",
   }];
 
   var hr = [{
     text: "HR Dashboard",
     link: url + "/app/hr",
-    icon: "https://image.flaticon.com/icons/png/512/3408/3408591.png",
+    icon: "../images/dashboard.png",
   }, {
     text: "Leave Application",
     link: url + "/app/leave-application/new-leave-application-1",
-    icon: "https://image.flaticon.com/icons/png/512/1828/1828490.png",
+    icon: "../images/leave-application.png",
   }, {
     text: "Expense Claim",
     link: url + "/app/expense-claim/new-expense-claim-1",
-    icon: "https://image.flaticon.com/icons/png/512/2646/2646183.png",
+    icon: "../images/expense-claim.png",
   }, {
     text: "Shift Application",
     link: url + "/app/shift-request/new-shift-request-1",
-    icon: "https://image.flaticon.com/icons/png/512/584/584547.png",
+    icon: "../images/shift-application.png",
   }, {
     text: "Travel Application",
     link: url + "/app/travel-request",
-    icon: "https://image.flaticon.com/icons/png/512/201/201623.png",
+    icon: "../images/travel-application.png",
   }, {
     text: "Appraisal",
     link: url + "/app/appraisal/new-appraisal-1",
-    icon: "https://image.flaticon.com/icons/png/512/786/786432.png",
+    icon: "../images/appraisal.png",
   }, {
     text: "Attendance Check In",
     link: url + "/app/employee-checkin/new-employee-checkin-1",
-    icon: "https://image.flaticon.com/icons/png/512/2620/2620267.png",
+    icon: "../images/attendance-check.png",
   }];
 
   var payroll = [{
     text: "Finance Dashboard",
     link: url + "/app/payroll",
-    icon: "https://image.flaticon.com/icons/png/512/2738/2738435.png",
+    icon: "../images/finance-dashboard.png",
   }, {
     text: "Salary Slip",
     link: url + "/app/salary-slip",
-    icon: "https://image.flaticon.com/icons/png/512/893/893104.png",
+    icon: "../images/salary-slip.png",
   }];
 
   var report = [{
     text: "Reporting",
     link: url + "/app/leave-application/view/report",
-    icon: "https://image.flaticon.com/icons/png/512/4371/4371114.png",
+    icon: "../images/reporting.png",
   }, {
     text: "Leave Report",
     link: url + "/app/leave-application/view/report",
-    icon: "https://image.flaticon.com/icons/png/512/3094/3094929.png",
+    icon: "../images/leave-report.png",
   }, {
     text: "Claim Report",
     link: url + "/app/expense-claim/view/report",
-    icon: "https://image.flaticon.com/icons/png/512/4149/4149709.png",
+    icon: "../images/claim-report.png",
   }, {
     text: "Travel Report",
     link: url + "/app/travel-request/view/report",
-    icon: "https://image.flaticon.com/icons/png/512/1985/1985362.png",
+    icon: "../images/travel-report.png",
   }, {
     text: "Attendance Report",
     link: url + "/app/attendance/view/report",
-    icon: "https://image.flaticon.com/icons/png/512/4470/4470312.png",
+    icon: "../images/attendance-report.png",
   }];
 
   addSection("Main", main);
@@ -288,15 +288,11 @@ function addLink(name, url, imgUrl, source) {
 }
 
 
-
 function addLeaveWidget(name) {
   const div = document.createElement("div");
   div.classList.add("leave-widget-naufal");
   const table = document.createElement("table");
   table.classList.add("leave-table-widget-naufal");
-
-  //div2.classList.add("standard-sidebar-label");
-  //const label = document.createTextNode(name);
 
   for (var i = 0; i < 2; i++) {
     const tr = document.createElement("tr");
