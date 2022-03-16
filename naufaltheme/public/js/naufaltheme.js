@@ -6,6 +6,13 @@ document.onreadystatechange = function () {
     localStorage.container_fullwidth = true;
     $(document.body).toggleClass('full-width', true);
   }
+  let testing = document.querySelector('.desk-sidebar');
+  console.log(testing);
+  if (testing != null) {
+    for (var i = 0; i < testing.childNodes.length; i++) {
+      testing.childNodes[i].setAttribute("style", "display:none;");
+    }
+  }
 };
 
 const url = window.location.origin;
@@ -134,23 +141,9 @@ window.onload = function () {
     addHomeDash();
   }
 
-  let testing = document.querySelector('.desk-sidebar');
-  console.log(testing);
-  if (testing != null) {
-    for (var i = 0; i < testing.childNodes.length; i++) {
-      testing.childNodes[i].setAttribute("style", "display:none;");
-    }
-  }
+  // testing implement was here
 
   let page = document.querySelector('.desk-page');
-  console.log("a");
-  console.log(page.getAttribute("data-page-name"));
-
-  if (page.getAttribute("data-page-name") == "Home") {
-    console.log("hayah");
-    page.classList.add("asas");
-
-  }
 
   var main = [{
     text: "Home",
