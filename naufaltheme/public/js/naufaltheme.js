@@ -69,7 +69,6 @@ async function getBalance(id, types, bool) {
     },
     callback: function (r) {
       // code snippet\
-      console.log(r.message);
       balance.push(r.message);
       if (bool) {
         setTimeout(function () {
@@ -119,7 +118,7 @@ window.onload = function () {
   if (login != null) {
     document.querySelector('body').setAttribute("style", "background : url('https://images.pexels.com/photos/373965/pexels-photo-373965.jpeg?cs=srgb&dl=pexels-burst-373965.jpg&fm=jpg');background-size: cover;background-repeat: no-repeat;");
     console.log("hoo");
-    login.setAttribute('style', "max-height: 200px;margin-bottom: 0px;padding-top: 20px;");
+    login.setAttribute('style', "max-height: 200px;margin-bottom: 0px; padding-top: 20px;");
     const loginSection = document.querySelector('.for-login');
 
     const loginImg = document.createElement("img");
@@ -136,7 +135,7 @@ window.onload = function () {
   }
 
   let testing = document.querySelector('.desk-sidebar');
-
+  console.log(testing);
   if (testing != null) {
     for (var i = 0; i < testing.childNodes.length; i++) {
       testing.childNodes[i].setAttribute("style", "display:none;");
@@ -384,10 +383,7 @@ function toggleDropdown() {
   const menu = document.querySelectorAll(".naufal-dropdown");
 
   for (var i = 0; i < menu.length; i++) {
-    console.log(menu[i]);
     var attr = menu[i].getAttribute("style");
-    console.log("a");
-    console.log(attr);
     if (attr == "display: none") {
       menu[i].setAttribute('style', "display: block");
     } else {
@@ -492,7 +488,6 @@ function addLeaveBox(source, isLoading) {
 
   let deskPage = document.querySelector('.desk-page');
 
-  console.log("hoy");
   console.log(deskPage.getAttribute("data-page-name"));
   source.appendChild(div);
 
