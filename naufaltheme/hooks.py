@@ -12,7 +12,14 @@ app_license = "MIT"
 # Includes in <head>
 # ------------------
 
-fixtures = ['Custom Field']
+fixtures = fixtures = [
+    "Custom Field", "Client Script", "Naming Series", "Property Setter", {
+        "doctype": "DocType",
+        "filters": {
+            "custom": ["=", "1"]
+        }
+    }
+]
 # include js, css files in header of desk.html
 # app_include_css = "/assets/naufaltheme/css/naufaltheme.css"
 # app_include_js = "/assets/naufaltheme/js/naufaltheme.js"
@@ -54,10 +61,9 @@ web_include_js = "/assets/naufaltheme/js/naufaltheme.js"
 #	"Role": "home_page"
 # }
 
-
 website_context = {
-	"favicon": "/assets/naufaltheme/images/allConnectMW.png",
-	"splash_image": "/assets/naufaltheme/images/allConnectMW.png"
+    "favicon": "/assets/naufaltheme/images/allConnectMW.png",
+    "splash_image": "/assets/naufaltheme/images/allConnectMW.png"
 }
 
 # Generators
@@ -154,30 +160,24 @@ website_context = {
 #
 # auto_cancel_exempted_doctypes = ["Auto Repeat"]
 
-
 # User Data Protection
 # --------------------
 
-user_data_fields = [
-	{
-		"doctype": "{doctype_1}",
-		"filter_by": "{filter_by}",
-		"redact_fields": ["{field_1}", "{field_2}"],
-		"partial": 1,
-	},
-	{
-		"doctype": "{doctype_2}",
-		"filter_by": "{filter_by}",
-		"partial": 1,
-	},
-	{
-		"doctype": "{doctype_3}",
-		"strict": False,
-	},
-	{
-		"doctype": "{doctype_4}"
-	}
-]
+user_data_fields = [{
+    "doctype": "{doctype_1}",
+    "filter_by": "{filter_by}",
+    "redact_fields": ["{field_1}", "{field_2}"],
+    "partial": 1,
+}, {
+    "doctype": "{doctype_2}",
+    "filter_by": "{filter_by}",
+    "partial": 1,
+}, {
+    "doctype": "{doctype_3}",
+    "strict": False,
+}, {
+    "doctype": "{doctype_4}"
+}]
 
 # Authentication and authorization
 # --------------------------------
@@ -185,4 +185,3 @@ user_data_fields = [
 # auth_hooks = [
 # 	"naufaltheme.auth.validate"
 # ]
-
